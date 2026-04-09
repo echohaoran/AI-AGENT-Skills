@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(web-search)",
+      "WebSearch",
+      "Bash(npx clawhub:*)",
+      "Bash(pnpm add:*)",
+      "Bash(clawhub search:*)",
+      "Bash(clawhub download:*)",
+      "Bash(clawhub install:*)",
+      "Bash(clawhub inspect:*)",
+      "Bash(cp sources/feishu/skills/feishu-toolkit/SKILL.md sources/feishu/SKILL_en.md)",
+      "Bash(cp sources/wecom/skills/openclaw-wecom-channel/SKILL.md sources/wecom/SKILL_en.md)",
+      "Bash(cp sources/baidu_search/skills/baidu-search/SKILL.md sources/baidu_search/SKILL_en.md)",
+      "Bash(cp sources/aliyun/skills/aliyun-cli-manage/SKILL.md sources/aliyun/SKILL_en.md)",
+      "Bash(cp sources/dingtalk/skills/dingtalk-api/SKILL.md sources/dingtalk/SKILL_en.md)",
+      "Bash(mv sources/feishu/feishu-toolkit-1.0.0.tar.gz sources/feishu/feishu-toolkit-1.0.0.zip)",
+      "Bash(mv sources/wecom/wecom-1.0.0.tar.gz sources/wecom/wecom-1.0.0.zip)",
+      "Bash(mv sources/baidu_search/baidu-search-1.0.0.tar.gz sources/baidu_search/baidu-search-1.0.0.zip)",
+      "Bash(mv sources/aliyun/aliyun-1.0.0.tar.gz sources/aliyun/aliyun-1.0.0.zip)",
+      "Bash(mv sources/dingtalk/dingtalk-1.0.0.tar.gz sources/dingtalk/dingtalk-1.0.0.zip)",
+      "Bash(rm -rf sources/feishu/skills sources/wecom/skills sources/baidu_search/skills sources/aliyun/skills sources/dingtalk/skills)",
+      "Bash(rm -rf sources/feishu/.clawhub sources/wecom/.clawhub sources/baidu_search/.clawhub sources/aliyun/.clawhub sources/dingtalk/.clawhub)",
+      "Bash(mv:*)",
+      "Bash(git:*)"
+    ]
+  }
+}
