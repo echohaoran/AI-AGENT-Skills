@@ -1,3 +1,9 @@
+---
+title: 技能审查
+excerpt: AI 代理技能的安全优先审查协议。在安装任何技能之前务必先审查。
+date: 2026-04-09
+---
+
 SKILL.md
 Skill Vetter 🔒
 

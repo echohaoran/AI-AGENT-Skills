@@ -1,19 +1,25 @@
 ---
+title: feishu
+excerpt: Complete Feishu (Lark) integration toolkit for AI agents. Read/write documents, fetch chat history, send files & screenshots, manage permissions, and create scheduled reminders. Supports Wiki, Docs, Sheets, Bitable, and IM operations.
+date: 2026-04-09
+---
+
+---
 name: feishu-toolkit
 version: 1.0.0
 description: >
   Complete Feishu (Lark) integration toolkit for AI agents. Read/write documents, 
   fetch chat history, send files & screenshots, manage permissions, and create 
   scheduled reminders. Supports Wiki, Docs, Sheets, Bitable, and IM operations.
-  Triggers: "飞书", "feishu", "lark", "读文档", "群聊记录", "发文件", 
-  "截屏发飞书", "文档权限", "定时提醒".
+  Triggers: "feishu", "lark", "read document", "chat history", "send file",
+  "send screenshot", "document permissions", "scheduled reminders".
 tags: [feishu, lark, document, chat, file, screenshot, permission, reminder, chinese, productivity]
 env:
   FEISHU_APP_ID: "Your Feishu app ID (from open.feishu.cn)"
   FEISHU_APP_SECRET: "Your Feishu app secret"
 ---
 
-# Feishu Toolkit (飞书工具箱)
+# Feishu Toolkit
 
 A comprehensive Feishu (Lark) integration skill for AI agents. Covers 6 major capabilities:
 
@@ -109,7 +115,7 @@ params = {
 |------|----------|
 | `text` | Extract `.body.content` JSON → `text` field |
 | `interactive` | Extract text nodes from `elements` array |
-| `image` | Note as `[图片]` |
+| `image` | Note as `[image]` |
 | `system` | Filter out unless relevant |
 
 ### Pagination

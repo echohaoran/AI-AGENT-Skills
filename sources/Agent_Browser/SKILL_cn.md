@@ -1,3 +1,9 @@
+---
+title: Agent 浏览器
+excerpt: 使用 accessibility tree snapshots 和 refs 实现快速浏览器自动化，实现确定性元素选择。
+date: 2026-04-09
+---
+
 SKILL.md
 Agent Browser Skill
 

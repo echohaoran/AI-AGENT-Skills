@@ -1,3 +1,9 @@
+---
+title: WPS 办公
+excerpt: 面向中文办公场景的 WPS 技能，覆盖文档写作、表格处理、演示制作、格式兼容和导出交付。
+date: 2026-04-09
+---
+
 SKILL.md
 WPS Office
 

@@ -1,3 +1,9 @@
+---
+title: 飞书
+excerpt: 与飞书（Lark）集成，实现工作沟通、协作和自动化。
+date: 2026-04-09
+---
+
 SKILL.md
 飞书 (Feishu/Lark) 集成
 

@@ -1,3 +1,9 @@
+---
+title: Skill_Vetter
+excerpt: Security-first vetting protocol for AI agent skills. Never install a skill without vetting it first.
+date: 2026-04-09
+---
+
 SKILL.md
 Skill Vetter 🔒
 

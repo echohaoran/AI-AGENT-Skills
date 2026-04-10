@@ -1,4 +1,10 @@
 ---
+title: aliyun
+excerpt: A skill for performing command-line operations on Alibaba Cloud resources, including listing, querying, creating, updating, and deleting resources, as well as managing credentials and regions.
+date: 2026-04-09
+---
+
+---
 name: aliyun-cli-manage
 description: Use when users need command-line operations on Alibaba Cloud resources (list/query/create/update/delete), credential/profile setup, region/endpoint selection, or API discovery from CLI.
 version: 1.0.0

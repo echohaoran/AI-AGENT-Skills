@@ -1,3 +1,9 @@
+---
+title: 阿里云
+excerpt: 管理阿里云资源，包括 ECS、OSS、RDS 等云服务。
+date: 2026-04-09
+---
+
 SKILL.md
 阿里云 (Aliyun) 操作
 

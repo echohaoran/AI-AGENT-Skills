@@ -1,3 +1,9 @@
+---
+title: 企业微信
+excerpt: 与企业微信（WeCom）集成，实现企业消息、CRM 自动化和工作流。
+date: 2026-04-09
+---
+
 SKILL.md
 企业微信 (WeCom) 集成
 

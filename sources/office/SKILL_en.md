@@ -1,3 +1,9 @@
+---
+title: office
+excerpt: A skill for office productivity software like Microsoft 365 and Google Workspace, covering spreadsheets, documents, presentations, and office administration.
+date: 2026-04-09
+---
+
 SKILL.md
 What "Office" Means Here
 

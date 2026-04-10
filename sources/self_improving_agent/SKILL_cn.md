@@ -1,3 +1,9 @@
+---
+title: 自我改进代理
+excerpt: 将学习成果和错误记录到 markdown 文件中以实现持续改进。编码代理稍后可以将这些处理成修复方案，重要的学习内容会被提升到项目内存中。
+date: 2026-04-09
+---
+
 SKILL.md
 Self-Improvement Skill
 

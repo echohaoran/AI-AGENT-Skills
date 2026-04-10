@@ -1,3 +1,9 @@
+---
+title: wps
+excerpt: A skill for WPS Office in Chinese office scenarios, covering document writing, spreadsheet processing, presentation creation, format compatibility, and delivery export.
+date: 2026-04-09
+---
+
 SKILL.md
 WPS Office
 

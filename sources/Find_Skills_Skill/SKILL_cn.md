@@ -1,3 +1,9 @@
+---
+title: 技能发现
+excerpt: 从各种来源搜索和发现 OpenClaw 技能。
+date: 2026-04-09
+---
+
 SKILL.md
 Find Skills Skill
 

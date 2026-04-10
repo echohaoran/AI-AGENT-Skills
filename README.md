@@ -8,25 +8,25 @@
 
 | Skill | Description |
 |-------|-------------|
-| [office](sources/office/SKILL_en.md) | Microsoft 365, Google Workspace - Excel, Word, PowerPoint |
-| [wps](sources/wps/SKILL_en.md) | WPS Office - Chinese office productivity suite |
-| [Nano_Pdf](sources/Nano_Pdf/SKILL_en.md) | nano-pdf - PDF editing with natural language |
-| [self_improving_agent](sources/self_improving_agent/SKILL_en.md) | Self-Improvement - Continuous learning and error logging |
-| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_en.md) | Find Skills - Search and discover OpenClaw skills |
-| [Agent_Browser](sources/Agent_Browser/SKILL_en.md) | Agent Browser - Fast browser automation |
-| [Skill_Vetter](sources/Skill_Vetter/SKILL_en.md) | Skill Vetter - Security vetting for AI agent skills |
-| [feishu](sources/feishu/SKILL_en.md) | Feishu (Lark) - Workplace communication and automation |
-| [wecom](sources/wecom/SKILL_en.md) | WeCom - WeChat Work enterprise messaging |
-| [baidu_search](sources/baidu_search/SKILL_en.md) | Baidu Search - Chinese web search |
-| [aliyun](sources/aliyun/SKILL_en.md) | Aliyun - Alibaba Cloud operations |
-| [dingtalk](sources/dingtalk/SKILL_en.md) | DingTalk - Enterprise communication and approvals |
+| [office](sources/office/SKILL_en.md) | A skill for office productivity software like Microsoft 365 and Google Workspace, covering spreadsheets, documents, presentations, and office administration. |
+| [wps](sources/wps/SKILL_en.md) | A skill for WPS Office in Chinese office scenarios, covering document writing, spreadsheet processing, presentation creation, format compatibility, and delivery export. |
+| [Nano_Pdf](sources/Nano_Pdf/SKILL_en.md) | Use nano-pdf to apply edits to a specific page in a PDF using a natural-language instruction. |
+| [self_improving_agent](sources/self_improving_agent/SKILL_en.md) | Log learnings and errors to markdown files for continuous improvement. Coding agents can later process these into fixes, and important learnings get promoted to project memory. |
+| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_en.md) | Search and discover OpenClaw skills from various sources. |
+| [Agent_Browser](sources/Agent_Browser/SKILL_en.md) | Fast browser automation using accessibility tree snapshots with refs for deterministic element selection. |
+| [Skill_Vetter](sources/Skill_Vetter/SKILL_en.md) | Security-first vetting protocol for AI agent skills. Never install a skill without vetting it first. |
+| [feishu](sources/feishu/SKILL_en.md) | Complete Feishu (Lark) integration toolkit for AI agents. Read/write documents, fetch chat history, send files & screenshots, manage permissions, and create scheduled reminders. Supports Wiki, Docs, Sheets, Bitable, and IM operations. |
+| [wecom](sources/wecom/SKILL_en.md) | A skill for integrating WeCom (Enterprise WeChat) with OpenClaw AI Agent, enabling message sending and receiving, encryption, token management, and access control. |
+| [baidu_search](sources/baidu_search/SKILL_en.md) | Search the web using Baidu AI Search Engine (BDSE). Use for live information, documentation, or research topics. |
+| [aliyun](sources/aliyun/SKILL_en.md) | A skill for performing command-line operations on Alibaba Cloud resources, including listing, querying, creating, updating, and deleting resources, as well as managing credentials and regions. |
+| [dingtalk](sources/dingtalk/SKILL_en.md) | A skill for calling DingTalk Open Platform APIs, supporting user and department management, message sending, and approval management. |
 
 ---
 
 ## Skill Details
 
 ### [office](sources/office/SKILL_en.md)
-Master Excel, Word, PowerPoint, and Google Workspace with formulas, formatting, and automation.
+A skill for office productivity software like Microsoft 365 and Google Workspace, covering spreadsheets, documents, presentations, and office administration.
 
 [View Details](sources/office/SKILL_en.md)
 
@@ -37,7 +37,7 @@ Download the office skill from https://gitee.com/echohaoran/ai-agent-commonly-us
 ---
 
 ### [wps](sources/wps/SKILL_en.md)
-WPS skill for Chinese office scenarios, covering document writing, spreadsheet processing, presentation creation, format compatibility, and delivery export.
+A skill for WPS Office in Chinese office scenarios, covering document writing, spreadsheet processing, presentation creation, format compatibility, and delivery export.
 
 [View Details](sources/wps/SKILL_en.md)
 
@@ -48,7 +48,7 @@ Download the wps skill from https://gitee.com/echohaoran/ai-agent-commonly-used-
 ---
 
 ### [Nano_Pdf](sources/Nano_Pdf/SKILL_en.md)
-Use nano-pdf to apply edits to a specific page in a PDF using natural-language instructions.
+Use nano-pdf to apply edits to a specific page in a PDF using a natural-language instruction.
 
 [View Details](sources/Nano_Pdf/SKILL_en.md)
 
@@ -59,7 +59,7 @@ Download the nano-pdf skill from https://gitee.com/echohaoran/ai-agent-commonly-
 ---
 
 ### [self_improving_agent](sources/self_improving_agent/SKILL_en.md)
-Log learnings and errors to markdown files for continuous improvement. Coding agents can later process these into fixes.
+Log learnings and errors to markdown files for continuous improvement. Coding agents can later process these into fixes, and important learnings get promoted to project memory.
 
 [View Details](sources/self_improving_agent/SKILL_en.md)
 
@@ -70,7 +70,7 @@ Download the self-improving-agent skill from https://gitee.com/echohaoran/ai-age
 ---
 
 ### [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_en.md)
-Search and discover OpenClaw skills from various sources including ClawHub, OpenClaw Directory, LobeHub, and GitHub.
+Search and discover OpenClaw skills from various sources.
 
 [View Details](sources/Find_Skills_Skill/SKILL_en.md)
 
@@ -103,7 +103,7 @@ Download the skill-vetter skill from https://gitee.com/echohaoran/ai-agent-commo
 ---
 
 ### [feishu](sources/feishu/SKILL_en.md)
-Integrate with Feishu (Lark) for workplace communication, collaboration, and automation.
+Complete Feishu (Lark) integration toolkit for AI agents. Read/write documents, fetch chat history, send files & screenshots, manage permissions, and create scheduled reminders. Supports Wiki, Docs, Sheets, Bitable, and IM operations.
 
 [View Details](sources/feishu/SKILL_en.md)
 
@@ -114,7 +114,7 @@ Download the feishu skill from https://gitee.com/echohaoran/ai-agent-commonly-us
 ---
 
 ### [wecom](sources/wecom/SKILL_en.md)
-Integrate with WeCom (WeChat Work) for enterprise messaging, CRM automation, and workplace workflows.
+A skill for integrating WeCom (Enterprise WeChat) with OpenClaw AI Agent, enabling message sending and receiving, encryption, token management, and access control.
 
 [View Details](sources/wecom/SKILL_en.md)
 
@@ -125,7 +125,7 @@ Download the wecom skill from https://gitee.com/echohaoran/ai-agent-commonly-use
 ---
 
 ### [baidu_search](sources/baidu_search/SKILL_en.md)
-Web search integration using Baidu search engine for Chinese internet content discovery.
+Search the web using Baidu AI Search Engine (BDSE). Use for live information, documentation, or research topics.
 
 [View Details](sources/baidu_search/SKILL_en.md)
 
@@ -136,7 +136,7 @@ Download the baidu-search skill from https://gitee.com/echohaoran/ai-agent-commo
 ---
 
 ### [aliyun](sources/aliyun/SKILL_en.md)
-Manage Aliyun (Alibaba Cloud) resources including ECS, OSS, RDS, and other cloud services.
+A skill for performing command-line operations on Alibaba Cloud resources, including listing, querying, creating, updating, and deleting resources, as well as managing credentials and regions.
 
 [View Details](sources/aliyun/SKILL_en.md)
 
@@ -147,7 +147,7 @@ Download the aliyun skill from https://gitee.com/echohaoran/ai-agent-commonly-us
 ---
 
 ### [dingtalk](sources/dingtalk/SKILL_en.md)
-Integrate with DingTalk for enterprise communication, attendance, approval workflows, and team management.
+A skill for calling DingTalk Open Platform APIs, supporting user and department management, message sending, and approval management.
 
 [View Details](sources/dingtalk/SKILL_en.md)
 

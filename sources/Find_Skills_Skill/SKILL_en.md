@@ -1,3 +1,9 @@
+---
+title: Find_Skills_Skill
+excerpt: Search and discover OpenClaw skills from various sources.
+date: 2026-04-09
+---
+
 SKILL.md
 Find Skills Skill
 

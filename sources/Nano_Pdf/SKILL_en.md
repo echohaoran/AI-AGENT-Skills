@@ -1,3 +1,9 @@
+---
+title: Nano_Pdf
+excerpt: Use nano-pdf to apply edits to a specific page in a PDF using a natural-language instruction.
+date: 2026-04-09
+---
+
 SKILL.md
 nano-pdf
 

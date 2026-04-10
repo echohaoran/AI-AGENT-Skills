@@ -1,3 +1,9 @@
+---
+title: Agent_Browser
+excerpt: Fast browser automation using accessibility tree snapshots with refs for deterministic element selection.
+date: 2026-04-09
+---
+
 SKILL.md
 Agent Browser Skill
 

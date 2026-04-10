@@ -1,86 +1,72 @@
 ---
-name: openclaw-wecom-channel
-description: "企业微信 (WeCom) Channel 插件 — 让 OpenClaw AI Agent 通过企业微信收发消息。支持消息加解密、Token 自动管理、访问控制策略。"
-homepage: https://github.com/darrryZ/openclaw-wecom-channel
-metadata: { "openclaw": { "emoji": "💬", "requires": { "bins": ["node"], "network": true } } }
+title: wecom
+excerpt: A skill for integrating WeCom (Enterprise WeChat) with OpenClaw AI Agent, enabling message sending and receiving, encryption, token management, and access control.
+date: 2026-04-09
 ---
 
-# OpenClaw 企业微信 Channel 插件
+# OpenClaw WeCom Channel Plugin
 
-企业微信 (WeCom/WxWork) 消息通道插件，让 OpenClaw AI Agent 通过企业微信收发消息，与 Telegram、Discord、Signal 等并列为原生 Channel。
+WeCom (Enterprise WeChat/WxWork) channel plugin that lets an OpenClaw AI Agent send and receive messages via WeCom, alongside Telegram, Discord, Signal, etc.
 
-## 功能
+## Features
 
-- **📩 接收消息** — 企业微信用户发送文本，Agent 自动回复
-- **📤 主动推送** — Agent 通过企业微信 API 主动发送消息
-- **🔐 消息加解密** — 完整实现企业微信 AES-256-CBC 消息加解密（WXBizMsgCrypt 标准）
-- **🔑 Token 管理** — access_token 自动缓存 + 提前 5 分钟刷新
-- **🛡️ 访问控制** — open / pairing / allowlist 三种策略
-- **⚡ 智能回复** — 5 秒内被动回复，超时自动降级为主动推送
+- Receive messages — Users send text in WeCom, the Agent replies automatically
+- Proactive push — Agent sends messages via WeCom APIs
+- Message encryption — Full AES‑256‑CBC (WXBizMsgCrypt) encrypt/decrypt
+- Token management — access_token caching with early refresh
+- Access control — open / pairing / allowlist strategies
+- Smart reply — respond within 5s, degrade to proactive push if timeout
 
-## 前置条件
+## Prerequisites
 
-- OpenClaw 已安装并运行
-- 企业微信管理员权限（创建自建应用）
-- 公网可达的回调 URL（推荐 Cloudflare Tunnel）
+- OpenClaw installed and running
+- WeCom admin privileges (create a custom app)
+- Publicly reachable callback URL (Cloudflare Tunnel recommended)
 
-## 快速开始
+## Quick Start
 
-### 1. 安装插件
-
+### 1) Install the plugin
 ```bash
-# 克隆到 OpenClaw extensions 目录
 git clone https://github.com/darrryZ/openclaw-wecom-channel.git ~/.openclaw/extensions/wecom
 ```
 
-### 2. 配置 OpenClaw
-
-编辑 `~/.openclaw/openclaw.json`：
-
+### 2) Configure OpenClaw
+Edit `~/.openclaw/openclaw.json`:
 ```json
 {
   "channels": {
     "wecom": {
       "enabled": true,
-      "corpId": "你的企业ID",
+      "corpId": "your_corp_id",
       "agentId": 1000003,
-      "secret": "应用Secret",
-      "token": "回调Token",
-      "encodingAESKey": "回调EncodingAESKey",
+      "secret": "app_secret",
+      "token": "callback_token",
+      "encodingAESKey": "callback_encoding_aes_key",
       "port": 18800,
       "dmPolicy": "open"
     }
   },
   "plugins": {
-    "entries": {
-      "wecom": { "enabled": true }
-    }
+    "entries": { "wecom": { "enabled": true } }
   }
 }
 ```
 
-### 3. 配置公网回调（Cloudflare Tunnel）
-
+### 3) Expose callback via Cloudflare Tunnel
 ```bash
 cloudflared tunnel create wecom-tunnel
 cloudflared tunnel route dns wecom-tunnel wecom.yourdomain.com
 cloudflared tunnel run --edge-ip-version 4 --url http://localhost:18800 wecom-tunnel
 ```
+Set the WeCom callback URL to: `https://wecom.yourdomain.com/wecom/callback`
 
-企业微信后台回调 URL 设置为：`https://wecom.yourdomain.com/wecom/callback`
-
-### 4. 重启 Gateway
-
+### 4) Restart gateway
 ```bash
 openclaw gateway restart
 ```
 
-## 详细文档
+## Links
 
-完整的配置指南、企业微信后台设置步骤、故障排查请参考 README.md。
-
-## 链接
-
-- **GitHub**: https://github.com/darrryZ/openclaw-wecom-channel
-- **OpenClaw**: https://github.com/openclaw/openclaw
-- **企业微信开发文档**: https://developer.work.weixin.qq.com/document/
+- GitHub: https://github.com/darrryZ/openclaw-wecom-channel
+- OpenClaw: https://github.com/openclaw/openclaw
+- WeCom Developer Docs: https://developer.work.weixin.qq.com/document/

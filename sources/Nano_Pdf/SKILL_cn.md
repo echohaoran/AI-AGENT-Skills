@@ -1,3 +1,9 @@
+---
+title: Nano PDF 工具
+excerpt: 使用 nano-pdf 通过自然语言指令对 PDF 文件中的特定页面进行编辑。
+date: 2026-04-09
+---
+
 SKILL.md
 nano-pdf
 

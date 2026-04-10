@@ -1,4 +1,10 @@
 ---
+title: baidu_search
+excerpt: Search the web using Baidu AI Search Engine (BDSE). Use for live information, documentation, or research topics.
+date: 2026-04-09
+---
+
+---
 name: baidu-search
 description: Search the web using Baidu AI Search Engine (BDSE). Use for live information, documentation, or research topics.
 metadata: { "openclaw": { "emoji": "🔍︎",  "requires": { "bins": ["python3"], "env":["BAIDU_API_KEY"]},"primaryEnv":"BAIDU_API_KEY" } }
@@ -37,23 +43,23 @@ python3 skills/baidu-search/scripts/search.py '<JSON>'
 
 ```bash
 # Basic search
-python3 scripts/search.py '{"query":"人工智能"}'
+python3 scripts/search.py '{"query":"artificial intelligence"}'
 
 # Freshness first format "YYYY-MM-DDtoYYYY-MM-DD" example
 python3 scripts/search.py '{
-  "query":"最新新闻",
+  "query":"latest news",
   "freshness":"2025-09-01to2025-09-08"
 }'
 
-# Freshness second format pd、pw、pm、py example
+# Freshness second format pd/pw/pm/py example
 python3 scripts/search.py '{
-  "query":"最新新闻",
+  "query":"latest news",
   "freshness":"pd"
 }'
 
-# set count, the number of results to return
+# Set count, the number of results to return
 python3 scripts/search.py '{
-  "query":"旅游景点",
+  "query":"tourist attractions",
   "count": 20,
 }'
 ```

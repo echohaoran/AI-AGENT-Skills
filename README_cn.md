@@ -8,25 +8,25 @@
 
 | 技能 | 描述 |
 |-------|-------------|
-| [office](sources/office/SKILL_cn.md) | Microsoft 365, Google Workspace - Excel、Word、PowerPoint |
-| [wps](sources/wps/SKILL_cn.md) | WPS Office - 面向中文办公场景 |
-| [Nano_Pdf](sources/Nano_Pdf/SKILL_cn.md) | nano-pdf - 自然语言编辑 PDF |
-| [self_improving_agent](sources/self_improving_agent/SKILL_cn.md) | Self-Improvement - 持续改进与学习日志 |
-| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_cn.md) | Find Skills - 搜索和发现 OpenClaw 技能 |
-| [Agent_Browser](sources/Agent_Browser/SKILL_cn.md) | Agent Browser - 快速浏览器自动化 |
-| [Skill_Vetter](sources/Skill_Vetter/SKILL_cn.md) | Skill Vetter - AI 代理技能的安全审查 |
-| [feishu](sources/feishu/SKILL_cn.md) | 飞书 (Feishu/Lark) - 工作沟通与自动化 |
-| [wecom](sources/wecom/SKILL_cn.md) | 企业微信 (WeCom) - 企业消息与 CRM 自动化 |
-| [baidu_search](sources/baidu_search/SKILL_cn.md) | 百度搜索 - 中文网络搜索 |
-| [aliyun](sources/aliyun/SKILL_cn.md) | 阿里云 (Aliyun) - 云资源管理 |
-| [dingtalk](sources/dingtalk/SKILL_cn.md) | 钉钉 (DingTalk) - 企业通讯与审批 |
+| [office](sources/office/SKILL_cn.md) | Office 办公技能，涵盖生产力软件（Microsoft 365、Google Workspace）和办公室行政管理，包括电子表格、文档、演示文稿和行政管理。 |
+| [wps](sources/wps/SKILL_cn.md) | 面向中文办公场景的 WPS 技能，覆盖文档写作、表格处理、演示制作、格式兼容和导出交付。 |
+| [Nano_Pdf](sources/Nano_Pdf/SKILL_cn.md) | 使用 nano-pdf 通过自然语言指令对 PDF 文件中的特定页面进行编辑。 |
+| [self_improving_agent](sources/self_improving_agent/SKILL_cn.md) | 将学习成果和错误记录到 markdown 文件中以实现持续改进。编码代理稍后可以将这些处理成修复方案，重要的学习内容会被提升到项目内存中。 |
+| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_cn.md) | 从各种来源搜索和发现 OpenClaw 技能。 |
+| [Agent_Browser](sources/Agent_Browser/SKILL_cn.md) | 使用 accessibility tree snapshots 和 refs 实现快速浏览器自动化，实现确定性元素选择。 |
+| [Skill_Vetter](sources/Skill_Vetter/SKILL_cn.md) | AI 代理技能的安全优先审查协议。在安装任何技能之前务必先审查。 |
+| [feishu](sources/feishu/SKILL_cn.md) | 与飞书（Lark）集成，实现工作沟通、协作和自动化。 |
+| [wecom](sources/wecom/SKILL_cn.md) | 与企业微信（WeCom）集成，实现企业消息、CRM 自动化和工作流。 |
+| [baidu_search](sources/baidu_search/SKILL_cn.md) | 使用百度搜索引擎进行网络搜索，便于发现中文互联网内容。 |
+| [aliyun](sources/aliyun/SKILL_cn.md) | 管理阿里云资源，包括 ECS、OSS、RDS 等云服务。 |
+| [dingtalk](sources/dingtalk/SKILL_cn.md) | 与钉钉集成，实现企业通讯、考勤、审批工作流和团队管理。 |
 
 ---
 
 ## 技能详情
 
 ### [office](sources/office/SKILL_cn.md)
-掌握 Excel、Word、PowerPoint 和 Google Workspace，熟练运用公式、格式设置与自动化。
+Office 办公技能，涵盖生产力软件（Microsoft 365、Google Workspace）和办公室行政管理，包括电子表格、文档、演示文稿和行政管理。
 
 [查看详情](sources/office/SKILL_cn.md)
 
@@ -59,7 +59,7 @@
 ---
 
 ### [self_improving_agent](sources/self_improving_agent/SKILL_cn.md)
-将学习成果和错误记录到 markdown 文件中以实现持续改进。编码代理稍后可以将这些处理成修复方案。
+将学习成果和错误记录到 markdown 文件中以实现持续改进。编码代理稍后可以将这些处理成修复方案，重要的学习内容会被提升到项目内存中。
 
 [查看详情](sources/self_improving_agent/SKILL_cn.md)
 
@@ -70,7 +70,7 @@
 ---
 
 ### [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_cn.md)
-从各种来源搜索和发现 OpenClaw 技能，包括 ClawHub、OpenClaw 目录、LobeHub 和 GitHub。
+从各种来源搜索和发现 OpenClaw 技能。
 
 [查看详情](sources/Find_Skills_Skill/SKILL_cn.md)
 

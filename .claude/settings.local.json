@@ -22,7 +22,12 @@
       "Bash(rm -rf sources/feishu/skills sources/wecom/skills sources/baidu_search/skills sources/aliyun/skills sources/dingtalk/skills)",
       "Bash(rm -rf sources/feishu/.clawhub sources/wecom/.clawhub sources/baidu_search/.clawhub sources/aliyun/.clawhub sources/dingtalk/.clawhub)",
       "Bash(mv:*)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "Bash(python scripts/update_readme.py)",
+      "Bash(python3:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(/c/Users/Administrator/AppData/Local/Microsoft/WindowsApps/python.exe:*)",
+      "Bash(cmd:*)"
     ]
   }
 }

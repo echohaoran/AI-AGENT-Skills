@@ -1,3 +1,9 @@
+---
+title: self_improving_agent
+excerpt: Log learnings and errors to markdown files for continuous improvement. Coding agents can later process these into fixes, and important learnings get promoted to project memory.
+date: 2026-04-09
+---
+
 Self-Improvement Skill
 
 Log learnings and errors to markdown files for continuous improvement. Coding agents can later process these into fixes, and important learnings get promoted to project memory.

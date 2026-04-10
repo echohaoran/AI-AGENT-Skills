@@ -1,3 +1,9 @@
+---
+title: 办公套件
+excerpt: Office 办公技能，涵盖生产力软件（Microsoft 365、Google Workspace）和办公室行政管理，包括电子表格、文档、演示文稿和行政管理。
+date: 2026-04-09
+---
+
 SKILL.md
 Office 办公技能
 
