@@ -25,6 +25,7 @@
 | [local-ocr](sources/local-ocr/SKILL_cn.md) | 🔍 **本地 OCR 识图转文**，基于 Tesseract 引擎实现离线文字识别，无需网络 API，支持中英简繁四语，保护隐私同时离线可用。已内置测试脚本可直接运行验证。 |
 | [weather](sources/weather/SKILL.md) | ☔ **天气查询**，通过 wttr.in 或 Open-Meteo 获取实时天气和预报，无需 API 密钥，完全免费。 |
 | [alma-bundled](sources/alma-bundled/README_cn.md) | 🔧 **Alma 内置技能包**，包含 30 项系统内置技能（浏览器自动化、截图、记忆管理、语音生成、Discord/Telegram 集成等）。 |
+| [feishu-miaoda](sources/feishu-miaoda/README_cn.md) | 🤖 **飞书妙搭技能包**，包含 27 项飞书机器人 + 妙搭应用技能（文档、多维表格、日历、任务、网页搜索、图片理解等）。 |
 | [workflow-automation](sources/workflow-automation/SKILL_cn.md) | ⚙️ **工作流自动化**，将复杂多步骤任务编排为自动化工作流，支持定时调度、文件监听、跨工具联动。**810+ 安装量**。 |
 | [docker](sources/docker/SKILL_cn.md) | 🐳 **Docker 容器化**，消除"在我机器上能跑"问题，安全沙箱执行代码，环境一致可复现。**705+ 安装量**。 |
 | [file-organizer](sources/file-organizer/SKILL_cn.md) | 📁 **文件智能整理**，批量重命名、重复检测、智能分类、自动归档，无需 API 纯本地处理。**582+ 安装量**。 |
@@ -291,4 +292,4 @@ tesseract your_image.png stdout -l chi_sim --psm 6
 
 ---
 
-**更新日志：** 2026-04-17 新增 18 项技能（awesome-privacy-skill、document-xlsx、marp、mermaid、pdf-generator、local-ocr、weather、alma-bundled、**workflow-automation**、**docker**、**file-organizer**、**git-workflow**、**code-review-quality**、**mysql**、**markdown-documentation**、**mcp-security-audit**、**api-integration-specialist**）
+**更新日志：** 2026-04-20 新增 **飞书妙搭技能包**（27 项飞书机器人 + 妙搭应用技能）

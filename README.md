@@ -25,6 +25,7 @@
 | [local-ocr](sources/local-ocr/SKILL_en.md) | 🔍 **Local OCR Image-to-Text** based on Tesseract engine for offline text recognition without network API. Supports Simplified/Traditional Chinese, English, Japanese, Korean. Privacy-friendly and works offline. Ready-to-use test script included. |
 | [weather](sources/weather/SKILL.md) | ☔ **Weather Query** via wttr.in or Open-Meteo. Get current weather and forecasts for any location. No API key needed, completely free. |
 | [alma-bundled](sources/alma-bundled/README.md) | 🔧 **Alma Bundled Skills Package** containing 30 built-in skills (browser automation, screenshot, memory management, voice generation, Discord/Telegram integration, Xiaohongshu CLI, etc.). |
+| [feishu-miaoda](sources/feishu-miaoda/README.md) | 🤖 **Feishu & Miaoda Skills** — 27 skills for Feishu bot + Miaoda apps (Docs, Bitable, Calendar, Tasks, Web search, Image understanding, etc.). |
 | [workflow-automation](sources/workflow-automation/SKILL.md) | ⚙️ **Workflow Automation** — orchestrate complex multi-step tasks into automated workflows with scheduling, file watching, and cross-tool chains. **810+ installs**. |
 | [docker](sources/docker/SKILL.md) | 🐳 **Docker Containerization** — eliminate "works on my machine" issues, execute code in secure sandboxes. **705+ installs**. |
 | [file-organizer](sources/file-organizer/SKILL.md) | 📁 **File Organizer** — batch rename, duplicate detection, smart classification, auto-archiving. No API. **582+ installs**. |
@@ -290,4 +291,4 @@ tesseract your_image.png stdout -l chi_sim --psm 6
 
 ---
 
-**Change Log:** 2026-04-17 Added 18 new skills (awesome-privacy-skill, document-xlsx, marp, mermaid, pdf-generator, local-ocr, weather, alma-bundled, **workflow-automation**, **docker**, **file-organizer**, **git-workflow**, **code-review-quality**, **mysql**, **markdown-documentation**, **mcp-security-audit**, **api-integration-specialist**)
+**Change Log:** 2026-04-20 Added **Feishu & Miaoda Skills Package** (27 skills for Feishu bot + Miaoda apps)
