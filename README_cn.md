@@ -6,34 +6,55 @@
 
 ---
 
-## 📦 技能包总览
+## 📦 技能目录
 
-| 技能包 | 路径 | 技能数 | 描述 |
-|--------|------|--------|------|
-| **productivity/** | [📂 查看](sources/productivity/README_cn.md) | 7 项 | 办公效率套件（Office、WPS、PPT、图表、PDF、Excel） |
-| **developer/** | [📂 查看](sources/developer/README_cn.md) | 8 项 | 开发者工具（Docker、Git、MySQL、代码审查、API） |
-| **ai-tools/** | [📂 查看](sources/ai-tools/README_cn.md) | 4 项 | AI 智能工具（浏览器自动化、技能搜索、安全审查） |
-| **privacy-security/** | [📂 查看](sources/privacy-security/README_cn.md) | 2 项 | 隐私安全（隐私脱敏、MCP 审计） |
-| **web-tools/** | [📂 查看](sources/web-tools/README_cn.md) | 3 项 | 网页工具（百度搜索、天气、OCR） |
-| **feishu-miaoda/** | [📂 查看](sources/feishu-miaoda/README_cn.md) | 27 项 | 飞书妙搭技能包（文档、多维表格、日历、任务等） |
-| **alma-bundled/** | [📂 查看](sources/alma-bundled/README_cn.md) | 30 项 | Alma 内置技能包（系统内置功能） |
-| **feishu/** | [📂 查看](sources/feishu/SKILL_cn.md) | 1 项 | 飞书基础集成 |
+| 技能 | 描述 |
+|------|------|
+| [office](sources/office/SKILL_cn.md) | Office 办公技能（Microsoft 365、Google Workspace） |
+| [wps](sources/wps/SKILL_cn.md) | 面向中文办公场景的 WPS 技能 |
+| [Nano_Pdf](sources/Nano_Pdf/SKILL_cn.md) | 使用自然语言指令编辑 PDF 特定页面 |
+| [self_improving_agent](sources/self_improving_agent/SKILL_cn.md) | 学习成果和错误记录，持续改进 |
+| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_cn.md) | 搜索和发现 OpenClaw 技能 |
+| [Agent_Browser](sources/Agent_Browser/SKILL_cn.md) | 浏览器自动化，快速元素选择 |
+| [Skill_Vetter](sources/Skill_Vetter/SKILL_cn.md) | AI 代理技能安全审查协议 |
+| [feishu](sources/feishu/SKILL_cn.md) | 飞书基础集成 |
+| [baidu_search](sources/baidu_search/SKILL.md) | 百度搜索引擎，中文互联网内容 |
+| [awesome-privacy-skill](sources/awesome-privacy-skill/README.md) | 🔒 隐私脱敏，防止 LLM 泄露用户隐私 |
+| [document-xlsx](sources/document-xlsx/frameworks/shared-skills/skills/document-xlsx/SKILL.md) | 📊 Excel 完整读写与生成，图表公式 |
+| [marp](sources/marp/README.md) | 🎤 Markdown 编写 PPT，导出 PPTX/PDF/HTML |
+| [mermaid](sources/mermaid/README.zh-CN.md) | 📈 SVG 图表生成器，31 种图表类型 |
+| [pdf-generator](sources/pdf-generator/skills/general/document-processing/pdf/pdf-generator/SKILL.md) | 📄 PDF 程序化创建与模板填充 |
+| [local-ocr](sources/local-ocr/SKILL_cn.md) | 🔍 本地 OCR 识图转文，离线可用 |
+| [weather](sources/weather/SKILL.md) | ☔ 天气查询，无需 API 密钥 |
+| [workflow-automation](sources/workflow-automation/SKILL_cn.md) | ⚙️ 工作流自动化，定时调度 |
+| [docker](sources/docker/SKILL_cn.md) | 🐳 Docker 容器化，安全沙箱 |
+| [file-organizer](sources/file-organizer/SKILL_cn.md) | 📁 文件智能整理，批量重命名 |
+| [git-workflow](sources/git-workflow/SKILL_cn.md) | 🔀 Git 分支策略，提交规范 |
+| [code-review-quality](sources/code-review-quality/SKILL_cn.md) | ✅ 自动化代码审查，风格检查 |
+| [mysql](sources/mysql/SKILL_cn.md) | 🗄️ MySQL 数据库查询，数据导出 |
+| [markdown-documentation](sources/markdown-documentation/SKILL_cn.md) | 📝 Markdown 文档，风格检查 |
+| [mcp-security-audit](sources/mcp-security-audit/SKILL_cn.md) | 🔒 MCP 安全审计，权限分析 |
+| [api-integration-specialist](sources/api-integration-specialist/SKILL_cn.md) | 🌐 REST API 集成，OAuth，重试逻辑 |
 
 ---
 
-## 📊 技能总数统计
+## 📦 技能包（打包合集）
+
+| 技能包 | 路径 | 描述 |
+|--------|------|------|
+| **feishu-miaoda/** | [📂 查看](sources/feishu-miaoda/README_cn.md) | 🤖 飞书妙搭技能包（27 项） |
+| **alma-bundled/** | [📂 查看](sources/alma-bundled/README_cn.md) | 🔧 Alma 内置技能包（30 项） |
+
+---
+
+## 📊 技能总数
 
 | 分类 | 数量 |
 |------|------|
-| 办公效率套件 (productivity) | 7 |
-| 开发者工具 (developer) | 8 |
-| AI 智能工具 (ai-tools) | 4 |
-| 隐私安全 (privacy-security) | 2 |
-| 网页工具 (web-tools) | 3 |
-| 飞书妙搭技能包 (feishu-miaoda) | 27 |
-| Alma 内置技能包 (alma-bundled) | 30 |
-| 飞书基础集成 (feishu) | 1 |
-| **总计** | **~82** 项 |
+| 独立技能 | 25 项 |
+| 飞书妙搭技能包 | 27 项 |
+| Alma 内置技能包 | 30 项 |
+| **总计** | **~82 项** |
 
 ---
 
@@ -41,70 +62,65 @@
 
 ```
 sources/
-├── productivity/          # 📊 办公效率套件 (7项)
-│   ├── office/           # Microsoft 365, Google Workspace
-│   ├── wps/             # WPS Office 中文办公
-│   ├── marp/            # Markdown PPT 演示
-│   ├── mermaid/         # SVG 图表生成器
-│   ├── pdf-generator/   # PDF 程序化生成
-│   ├── document-xlsx/    # Excel 读写生成
-│   └── Nano_Pdf/         # PDF 编辑
+├── office/                  # Office 办公
+├── wps/                    # WPS 办公
+├── Nano_Pdf/              # PDF 编辑
+├── self_improving_agent/  # 自我改进
+├── Find_Skills_Skill/     # 技能搜索
+├── Agent_Browser/         # 浏览器自动化
+├── Skill_Vetter/          # 安全审查
+├── feishu/                # 飞书基础
+├── baidu_search/          # 百度搜索
+├── weather/               # 天气查询
+├── local-ocr/             # 本地 OCR
+├── workflow-automation/   # 工作流自动化
+├── docker/                # Docker 容器化
+├── file-organizer/        # 文件整理
+├── git-workflow/          # Git 工作流
+├── code-review-quality/   # 代码审查
+├── mysql/                 # MySQL 数据库
+├── markdown-documentation/ # Markdown 文档
+├── mcp-security-audit/   # MCP 安全审计
+├── api-integration-specialist/ # API 集成
 │
-├── developer/            # 🛠️ 开发者工具 (8项)
-│   ├── docker/           # Docker 容器化
-│   ├── git-workflow/     # Git 工作流
-│   ├── mysql/            # MySQL 数据库
-│   ├── code-review-quality/ # 代码审查
-│   ├── markdown-documentation/ # Markdown 文档
-│   ├── api-integration-specialist/ # API 集成
-│   ├── workflow-automation/ # 工作流自动化
-│   └── file-organizer/   # 文件智能整理
-│
-├── ai-tools/             # 🤖 AI 智能工具 (4项)
-│   ├── Agent_Browser/    # 浏览器自动化
-│   ├── Find_Skills_Skill/ # 技能搜索
-│   ├── Skill_Vetter/     # 安全审查
-│   └── self_improving_agent/ # 自我改进
-│
-├── privacy-security/     # 🔒 隐私安全 (2项)
-│   ├── awesome-privacy-skill/ # 隐私脱敏
-│   └── mcp-security-audit/    # MCP 审计
-│
-├── web-tools/            # 🌐 网页工具 (3项)
-│   ├── baidu_search/     # 百度搜索
-│   ├── weather/          # 天气查询
-│   └── local-ocr/        # 本地 OCR
-│
-├── feishu-miaoda/       # 📱 飞书妙搭 (27项)
-│   ├── feishu-bitable/      # 多维表格
-│   ├── feishu-calendar/     # 日历管理
-│   ├── feishu-create-doc/   # 创建文档
-│   ├── feishu-fetch-doc/    # 读取文档
-│   ├── feishu-im-read/      # 消息读取
-│   ├── feishu-task/        # 任务管理
-│   ├── miaoda-coding/       # 代码开发
-│   ├── miaoda-database/     # 数据库
-│   ├── miaoda-doc-parse/    # 文档解析
-│   ├── miaoda-image-understanding/ # 图片理解
-│   ├── miaoda-speech-to-text/ # 语音转文字
-│   ├── miaoda-text-gen-image/  # 文生图
-│   ├── miaoda-web-fetch/    # 网页抓取
-│   ├── miaoda-web-search/   # 网页搜索
-│   ├── taobao-shop-price/   # 全网比价
-│   ├── video-frames/        # 视频帧提取
+├── feishu-miaoda/         # 📦 飞书妙搭技能包（27项）
+│   ├── feishu-bitable/
+│   ├── feishu-calendar/
+│   ├── feishu-create-doc/
+│   ├── feishu-fetch-doc/
+│   ├── feishu-im-read/
+│   ├── feishu-task/
+│   ├── feishu-troubleshoot/
+│   ├── feishu-update-doc/
+│   ├── miaoda-coding/
+│   ├── miaoda-database-skill/
+│   ├── miaoda-doc-parse/
+│   ├── miaoda-image-understanding/
+│   ├── miaoda-openclaw-guide/
+│   ├── miaoda-skillhub/
+│   ├── miaoda-speech-to-text/
+│   ├── miaoda-text-gen-image/
+│   ├── miaoda-web-fetch/
+│   ├── miaoda-web-search/
+│   ├── taobao-shop-price/
+│   ├── video-frames/
 │   └── ...
 │
-├── alma-bundled/        # 🔧 Alma 内置 (30项)
-│   ├── browser/          # 浏览器自动化
-│   ├── screenshot/      # 屏幕截图
-│   ├── system-info/     # 系统信息
-│   ├── memory-management/ # 记忆管理
-│   ├── voice/           # 语音生成
-│   ├── telegram/        # Telegram 机器人
-│   ├── discord/         # Discord 集成
+├── alma-bundled/          # 📦 Alma 内置技能包（30项）
+│   ├── browser/
+│   ├── screenshot/
+│   ├── system-info/
+│   ├── memory-management/
+│   ├── voice/
+│   ├── telegram/
+│   ├── discord/
 │   └── ...
 │
-└── feishu/              # 📱 飞书基础集成
+├── awesome-privacy-skill/ # 隐私脱敏（独立仓库）
+├── marp/                  # Markdown PPT（独立仓库）
+├── mermaid/               # SVG 图表（独立仓库）
+├── pdf-generator/         # PDF 生成（独立仓库）
+└── document-xlsx/          # Excel（独立仓库）
 ```
 
 ---
@@ -120,9 +136,9 @@ sources/
 
 | 日期 | 内容 |
 |------|------|
-| 2026-04-20 | 新增子目录结构（productivity、developer、ai-tools、privacy-security、web-tools） |
+| 2026-04-20 | 整理目录结构，独立技能保持扁平，feishu/alma 打包为子目录 |
 | 2026-04-20 | 新增飞书妙搭技能包（27 项） |
-| 2026-04-17 | 新增 10 项无 API 技能（workflow-automation、docker、mysql 等） |
+| 2026-04-17 | 新增 10 项无 API 技能 |
 | 2026-04-17 | 新增 alma-bundled 技能包（30 项） |
 
 ---
