@@ -35,6 +35,7 @@
 | [markdown-documentation](sources/markdown-documentation/SKILL_cn.md) | 📝 Markdown 文档，风格检查 |
 | [mcp-security-audit](sources/mcp-security-audit/SKILL_cn.md) | 🔒 MCP 安全审计，权限分析 |
 | [api-integration-specialist](sources/api-integration-specialist/SKILL_cn.md) | 🌐 REST API 集成，OAuth，重试逻辑 |
+| [markitdown](sources/markitdown/SKILL_cn.md) | 📄 微软文档转 Markdown，支持 DOCX/Excel/PPTX/PDF/图片 OCR |
 
 ---
 

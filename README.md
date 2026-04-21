@@ -35,6 +35,7 @@
 | [markdown-documentation](sources/markdown-documentation/SKILL.md) | 📝 Markdown docs, style enforcement |
 | [mcp-security-audit](sources/mcp-security-audit/SKILL.md) | 🔒 MCP security audit |
 | [api-integration-specialist](sources/api-integration-specialist/SKILL.md) | 🌐 REST API integration |
+| [markitdown](sources/markitdown/SKILL.md) | 📄 Microsoft document to Markdown, supports DOCX/Excel/PPTX/PDF/OCR |
 
 ---
 
