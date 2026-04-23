@@ -1,4 +1,4 @@
-# Skill: Privacy Shield
+# Skill: Privacy Shield v1.2
 
 ## 1. Context
 
@@ -6,31 +6,51 @@
 
 **核心原则**：不得将原始敏感数据发送给任何外部服务。Agent 在发送任何内容到 LLM 前，必须先通过本 Skill 完成本地脱敏；LLM 回复逆还原前，必须先通过本 Skill 完成映射还原。
 
+**v1.2 新增能力**：
+- **PDF 图像级脱敏**（核心创新）：PyMuPDF 精准坐标定位 + 高清渲染 + OCR 验证，全自动
+- 新增 `PASSPORT` / `FRAGMENT` / `USERNAME` 类型检测
+- 新增 `pdf_handler.redact_image_level()` — PDF 图像级脱敏专用方法
+- 新增 `pdf_handler.verify_redaction()` — OCR 验证脱敏效果
+
 ---
 
 ## 2. Workflow
 
 ### 阶段 A：脱敏（发送前）
 
-当用户请求处理含敏感信息的文件时：
+```bash
+# Word/Excel/Markdown：正则模式（自动检测未知敏感数据）
+echo '{"action":"redact_file","file_path":"report.docx"}' | python3 scripts/main.py
 
-1. 调用 `scripts/main.py` 进行脱敏：
-   - **输入**（stdin JSON）：`{"action": "redact_file", "file_path": "<路径>"}`
-   - 或对文本内容：`{"action": "redact_content", "content": "<文本>"}`
-2. 获取返回值：
-   - `redacted_content`：含 `<<REDACTED_TYPE_INDEX>>` 占位符的脱敏内容
-   - `mapping`：原始数据映射表 `[{"type": "...", "index": 1, "original": "...", "marker": "..."}, ...]`
-3. **将 `redacted_content` 发送给 LLM**，同时附上任务指令
+# Word/Excel/Markdown：关键词规则表（最高精度）
+echo '{"action":"redact_file","file_path":"report.docx","keyword_rules":[
+  {"keyword":"张雅琪","placeholder":"████姓名A"},
+  {"keyword":"13867925618","placeholder":"████手机A"}
+]}' | python3 scripts/main.py
 
-### 阶段 B：逆脱敏（接收后）
+# PDF（图形化文本，推荐图像级脱敏）
+echo '{"action":"redact_file","file_path":"report.pdf","keyword_rules":[
+  {"keyword":"张雅琪","placeholder":"████姓名A"},
+  {"keyword":"13867925618","placeholder":"████手机A"}
+],"redact_mode":"image"}' | python3 scripts/main.py
+```
 
-当 LLM 返回内容后：
+获取返回值：`redacted_content`、`mapping`、`output_path`、`detections`
 
-1. 调用 `scripts/main.py` 进行逆脱敏：
-   - **输入**（stdin JSON）：`{"action": "unmask", "content": "<LLM回复内容>", "mapping": <映射表>}`
-2. 获取返回值：
-   - `restored_content`：敏感数据已还原的内容
-3. 将还原后的内容返回给用户
+**将 `redacted_content` 发送给 LLM**，同时附上任务指令。
+
+### 阶段 B：验证（推荐）
+
+```bash
+echo '{"action":"validate","redacted_content":"..."}' | python3 scripts/main.py
+# 返回 {"clean": true/false, "remaining": [...]} — 若 clean=false，需补充规则
+```
+
+### 阶段 C：逆脱敏（接收后）
+
+```bash
+echo '{"action":"unmask","content":"<LLM回复内容>","mapping":[...]}' | python3 scripts/main.py
+```
 
 ---
 
@@ -38,39 +58,165 @@
 
 - **[CRITICAL]** 严禁在未调用 `scripts/main.py` 脱敏的情况下直接读取源文件内容
 - **[CRITICAL]** 严禁将原始明文发送给任何外部 LLM 服务
-- **[FORMAT]** 必须保留所有形如 `<<REDACTED_TYPE_INDEX>>` 的占位符，不得删除或修改
+- **[FORMAT]** 必须保留所有形如 `<<REDACTED_TYPE_INDEX>>` 或 `[████TYPE_1]` 的占位符
 - **[MAPPING]** 所有 `mapping` 对象必须从脱敏阶段完整传递到逆脱敏阶段，不得丢失
+- **[VALIDATE]** 脱敏完成后，强烈建议调用 `validate` 确认无残留
+- **[KEYWORD]** 关键词规则按长度降序排列，防止短词吞长词
+- **[PDF]** 对于图形化 PDF，优先使用 `redact_image_level()` 方法（图像级遮盖）
 - **[EXIT]** 脚本执行完毕必须立即退出，不得常驻进程
 
 ---
 
-## 4. Supported Sensitive Data Types
+## 4. Supported Sensitive Data Types (v1.2)
 
-| Type | Pattern |
-|------|---------|
-| NAME | John Smith、张三 |
-| PHONE | 13812345678、555-123-4567 |
-| EMAIL | user@example.com |
-| ID | 身份证号、SSN |
-| CREDIT_CARD | `4111****1111`（部分脱敏，首尾4位明文） |
-| ADDRESS | 123 Main Street、北京市朝阳区 |
-| IP | 192.168.1.1 |
-| API_KEY | `sk-xxx`, Bearer token, `ghp_xxx`, AWS AKIA, JWT |
-| MONEY | `$100`, `¥99.99`, `100美元`, `10,000元` |
-| COMPANY_NAME | `北京****有限公司`（部分脱敏） |
-| CUSTOM | 用户自定义正则（通过 `privacy-config.json` 配置）|
+| Type | Pattern | Specificity |
+|------|---------|-------------|
+| CREDIT_CARD | Visa/MC/Amex/UnionPay 13-19位，`(?<!\d)(?!\d)` 边界 | 80 |
+| ID | 中国身份证18位 / US SSN（含分隔符） | 70 |
+| API_KEY | GitHub Token、AWS Key、OpenAI Key、JWT、Bearer Token 等 | 65 |
+| EMAIL | 标准邮箱格式 | 60 |
+| MONEY | 货币符号+金额、金融关键词+金额 | 55 |
+| PHONE | 中国手机号、US电话、国际电话 | 50 |
+| PASSPORT | 中国护照(E+8位)、港澳通行证(W+8位)、驾照(12位) | 45 |
+| IP | IPv4 地址 | 40 |
+| FRAGMENT | 10-19位数字串（捕获 OCR 碎片化长编号） | 35 |
+| USERNAME | 微信号(wxid_)、OA账号、社交媒体用户名 | 30 |
+| COMPANY_NAME | 公司名（中英文后缀匹配，**部分脱敏**） | 30 |
+| NAME | English Name、Chinese Pinyin Name | 20 |
+| ADDRESS | 英文街道地址、中文省市区详细地址 | 10 |
+| CUSTOM | 用户自定义正则（`privacy-config.json` 配置） | 25 |
 
 ---
 
-## 5. Script Action Protocol
-
-脚本通过 stdin/stdout JSON 与 Agent 通信：
+## 5. Script Action Protocol (v1.2)
 
 | action | 输入 | 输出 |
 |--------|------|------|
-| `redact_file` | `{"action":"redact_file","file_path":"..."}` | `{"status":"success","redacted_content":"...","mapping":[...],"detections":[...]}` |
-| `redact_content` | `{"action":"redact_content","content":"..."}` | `{"status":"success","redacted_content":"...","mapping":[...]}` |
+| `redact_file` | `{"action":"redact_file","file_path":"...","keyword_rules":[...],"redact_mode":"image"}` | `{"status":"success","redacted_content":"...","mapping":[...],"output_path":"...","detections":[...]}` |
+| `redact_content` | `{"action":"redact_content","content":"...","keyword_rules":[...]}` | `{"status":"success","redacted_content":"...","mapping":[...],"detections":[...]}` |
 | `unmask` | `{"action":"unmask","content":"...","mapping":[...]}` | `{"status":"success","restored_content":"...","unmasked_count":n}` |
 | `detect` | `{"action":"detect","content":"..."}` | `{"status":"success","detections":[...]}` |
+| `validate` | `{"action":"validate","redacted_content":"..."}` | `{"status":"success","clean":bool,"remaining":[...]}` |
 
-错误返回：`{"status":"error","message":"错误描述"}`
+---
+
+## 6. PDF 图像级脱敏详解（v1.2 核心创新）
+
+### 适用场景
+- 图形化 PDF（文字由字体渲染，PyMuPDF 文本提取不完整）
+- OCR 难以精准识别的复杂布局
+- 需要视觉级遮盖而非文本替换
+
+### 技术原理
+
+```
+PDF原始页面
+    ↓ [PyMuPDF text_dict 提取]
+精确文本坐标 (x0, y0, x1, y1)
+    ↓ [Scale × zoom 倍]
+图像像素坐标
+    ↓ [PIL 绘制全行黑条]
+高清遮盖图像
+    ↓ [fitz.insert_image]
+新 PDF（敏感内容被黑块完全覆盖）
+    ↓ [pytesseract OCR 验证]
+确认零残留
+```
+
+### 关键参数
+
+| 参数 | 默认值 | 说明 |
+|------|--------|------|
+| `zoom` | 4 | 渲染分辨率（4×=288 DPI，越高越精准但文件越大） |
+| `keyword_rules` | 必填 | 精准关键词表（推荐先用 `detect` 提取） |
+| `output_path` | 必填 | 输出 PDF 路径 |
+
+### 代码示例
+
+```python
+from scripts.handlers.pdf_handler import PDFHandler
+
+handler = PDFHandler(settings)
+result = handler.redact_image_level(
+    input_path="原始.pdf",
+    output_path="脱敏版.pdf",
+    keyword_rules=[
+        {"keyword": "张雅琪", "placeholder": "████姓名A"},
+        {"keyword": "13867925618", "placeholder": "████手机A"},
+    ],
+    zoom=4,
+)
+print(result["total_rects"], "处已遮盖")
+```
+
+### 注意事项
+
+1. **关键词空格**：PyMuPDF 提取文本可能不保留空格，如 `"税前 18600 元"` 实际为 `"税前18600 元"`。建议同时添加有空格和无空格两个版本。
+2. **全行遮盖**：使用整行宽度黑条，而非仅覆盖文本 bbox，防止字体字形超界导致的白缝。
+3. **合并相邻行**：相邻的敏感行合并为一个遮盖区域，减少黑块数量。
+4. **验证必须**：脱敏后必须运行 OCR 验证，防止遗漏。
+
+---
+
+## 7. keyword_rules 使用指南
+
+```python
+keyword_rules = [
+    # 长词在前，短词在后（防止短词吞长词）
+    {"keyword": "杭州市滨江区长河街道奥体壹号小区7栋2单元1902", "placeholder": "████现居地址A"},
+    {"keyword": "奥体壹号小区", "placeholder": "████小区A"},
+    {"keyword": "张雅琪", "placeholder": "████姓名A"},
+    {"keyword": "13867925618", "placeholder": "████手机A"},
+    # PDF 关键词建议同时添加空格/无空格版本
+    {"keyword": "税前18600 元", "placeholder": "████薪资A"},
+    {"keyword": "税前 18600 元", "placeholder": "████薪资A"},
+]
+```
+
+**优势**：
+- 零误差：精确字符串匹配，不依赖正则
+- 防碎片化：不会被文本分块/OCR 拆分影响
+- 快速：单次遍历，O(n) 复杂度
+
+---
+
+## 8. Configuration (`privacy-config.json`)
+
+```json
+{
+  "privacy": {
+    "redaction_marker": "<<REDACTED_{type}_{index}>>",
+    "marker_style": "angle"
+  },
+  "sensitive_types": {
+    "NAME": true, "PHONE": true, "EMAIL": true,
+    "ID": true, "CREDIT_CARD": true,
+    "PASSPORT": true, "FRAGMENT": true, "USERNAME": true,
+    "ADDRESS": true, "IP": true,
+    "API_KEY": true, "MONEY": true, "COMPANY_NAME": true,
+    "CUSTOM": true
+  },
+  "keyword_rules": [
+    {"keyword": "张雅琪", "placeholder": "████姓名A"}
+  ],
+  "custom_patterns": [
+    {"type": "CUSTOM", "pattern": "\\bsecret\\d+\\b"}
+  ],
+  "output": {
+    "save_file": true,
+    "suffix": "_redacted"
+  }
+}
+```
+
+---
+
+## 9. 文件处理说明
+
+| 格式 | 方法 | 说明 |
+|------|------|------|
+| `.docx` | `write_with_mapping()` | 关键词精准替换，保留段落/表格结构 |
+| `.pdf` | `redact_image_level()` | 图像级遮盖，OCR 验证，零残留 |
+| `.xlsx` | 正则模式 | 正则替换，保留 Excel 格式 |
+| `.md` | 直接替换 | 文本替换，直接保存 |
+| `.jpg/.png` | `pytesseract` | OCR 识别文字区域 + 像素级遮盖 |
