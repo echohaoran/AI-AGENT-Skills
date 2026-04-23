@@ -18,7 +18,7 @@
 | [Agent_Browser](sources/Agent_Browser/SKILL_cn.md) | 浏览器自动化，快速元素选择 |
 | [Skill_Vetter](sources/Skill_Vetter/SKILL_cn.md) | AI 代理技能安全审查协议 |
 | [feishu](sources/feishu/SKILL_cn.md) | 飞书基础集成 |
-| [baidu_search](sources/baidu_search/SKILL.md) | 百度搜索引擎，中文互联网内容 |
+| [baidu_search](sources/baidu_search/SKILL_cn.md) | 百度搜索引擎，中文互联网内容 |
 | [awesome-privacy-skill](sources/awesome-privacy-skill/README.md) | 🔒 隐私脱敏，防止 LLM 泄露用户隐私 |
 | [document-xlsx](sources/document-xlsx/frameworks/shared-skills/skills/document-xlsx/SKILL.md) | 📊 Excel 完整读写与生成，图表公式 |
 | [marp](sources/marp/README.md) | 🎤 Markdown 编写 PPT，导出 PPTX/PDF/HTML |

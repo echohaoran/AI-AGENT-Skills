@@ -10,21 +10,21 @@
 
 | Skill | Description |
 |-------|-------------|
-| [office](sources/office/SKILL.md) | Office productivity (Microsoft 365, Google Workspace) |
-| [wps](sources/wps/SKILL.md) | WPS Office for Chinese scenarios |
-| [Nano_Pdf](sources/Nano_Pdf/SKILL.md) | Edit PDF pages with natural language |
-| [self_improving_agent](sources/self_improving_agent/SKILL.md) | Log learnings and errors for continuous improvement |
-| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL.md) | Search and discover OpenClaw skills |
-| [Agent_Browser](sources/Agent_Browser/SKILL.md) | Browser automation with fast element selection |
-| [Skill_Vetter](sources/Skill_Vetter/SKILL.md) | Security vetting protocol for AI agent skills |
-| [feishu](sources/feishu/SKILL.md) | Feishu (Lark) basic integration |
-| [baidu_search](sources/baidu_search/SKILL.md) | Baidu search engine for Chinese content |
+| [office](sources/office/SKILL_en.md) | Office productivity (Microsoft 365, Google Workspace) |
+| [wps](sources/wps/SKILL_en.md) | WPS Office for Chinese scenarios |
+| [Nano_Pdf](sources/Nano_Pdf/SKILL_en.md) | Edit PDF pages with natural language |
+| [self_improving_agent](sources/self_improving_agent/SKILL_en.md) | Log learnings and errors for continuous improvement |
+| [Find_Skills_Skill](sources/Find_Skills_Skill/SKILL_en.md) | Search and discover OpenClaw skills |
+| [Agent_Browser](sources/Agent_Browser/SKILL_en.md) | Browser automation with fast element selection |
+| [Skill_Vetter](sources/Skill_Vetter/SKILL_en.md) | Security vetting protocol for AI agent skills |
+| [feishu](sources/feishu/SKILL_en.md) | Feishu (Lark) basic integration |
+| [baidu_search](sources/baidu_search/SKILL_en.md) | Baidu search engine for Chinese content |
 | [awesome-privacy-skill](sources/awesome-privacy-skill/README.md) | 🔒 Privacy redaction, prevent LLM data leakage |
 | [document-xlsx](sources/document-xlsx/frameworks/shared-skills/skills/document-xlsx/SKILL.md) | 📊 Excel read/write with charts and formulas |
 | [marp](sources/marp/README.md) | 🎤 Markdown PPT, export PPTX/PDF/HTML |
 | [mermaid](sources/mermaid/README.md) | 📈 SVG chart generator, 31 chart types |
 | [pdf-generator](sources/pdf-generator/skills/general/document-processing/pdf/pdf-generator/SKILL.md) | 📄 Programmatic PDF creation and templates |
-| [local-ocr](sources/local-ocr/SKILL.md) | 🔍 Local OCR, works offline |
+| [local-ocr](sources/local-ocr/SKILL_en.md) | 🔍 Local OCR, works offline |
 | [weather](sources/weather/SKILL.md) | ☔ Weather query, no API key needed |
 | [workflow-automation](sources/workflow-automation/SKILL.md) | ⚙️ Workflow automation, scheduling |
 | [docker](sources/docker/SKILL.md) | 🐳 Docker containerization |
@@ -41,10 +41,10 @@
 
 ## 📦 Skill Packages (Bundled)
 
-| Package | Path | Description |
-|---------|------|-------------|
-| **feishu-miaoda/** | [📂 View](sources/feishu-miaoda/README.md) | 🤖 Feishu & Miaoda Skills (27) |
-| **alma-bundled/** | [📂 View](sources/alma-bundled/README.md) | 🔧 Alma Built-in Skills (30) |
+| Package | Description |
+|---------|-------------|
+| [feishu-miaoda/](sources/feishu-miaoda/README.md) | 🤖 Feishu & Miaoda Skills (27) |
+| [alma-bundled/](sources/alma-bundled/README.md) | 🔧 Alma Built-in Skills (30) |
 
 ---
 
@@ -83,9 +83,9 @@ sources/
 ├── markdown-documentation/ # Markdown docs
 ├── mcp-security-audit/   # MCP audit
 ├── api-integration-specialist/ # API integration
+├── markitdown/            # Document to Markdown
 │
 ├── feishu-miaoda/         # 📦 Feishu & Miaoda (27)
-│
 ├── alma-bundled/          # 📦 Alma Built-in (30)
 │
 ├── awesome-privacy-skill/ # External repo
@@ -108,6 +108,7 @@ sources/
 
 | Date | Description |
 |------|-------------|
+| 2026-04-21 | Fixed broken links (SKILL.md → SKILL_en.md) |
 | 2026-04-20 | Organized directory structure, flat for skills, bundled for feishu/alma |
 | 2026-04-20 | Added Feishu & Miaoda Skills Package (27) |
 | 2026-04-17 | Added 10 No-API skills |
@@ -115,4 +116,4 @@ sources/
 
 ---
 
-*Last updated: 2026-04-20*
+*Last updated: 2026-04-21*
