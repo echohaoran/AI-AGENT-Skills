@@ -1,0 +1,16 @@
+{
+  "name": "openclaw-skill-privacy-shield",
+  "version": "1.0.0",
+  "description": "本地敏感数据脱敏与可逆还原工具",
+  "main": "skill.json",
+  "openclaw": {
+    "type": "skill",
+    "main": "skill.json",
+    "postInstall": "pip install -r requirements.txt"
+  },
+  "scripts": {
+    "postinstall": "pip install -r requirements.txt"
+  },
+  "keywords": ["privacy", "redaction", "agent", "openclaw", "masking", "sensitive-data"],
+  "license": "MIT"
+}

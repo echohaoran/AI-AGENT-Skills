@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Git Graphs Mermaid Quick Test Page</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=" />
+    <style>
+      div.mermaid {
+        /* font-family: 'trebuchet ms', verdana, arial; */
+        font-family: 'Courier New', Courier, monospace !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Git graph demo</h1>
+    <h2>Simple "branch and merge" graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Simple "branch and merge" (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit
+    checkout main
+    merge newbranch
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Simple "branch and merge" (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit
+    checkout main
+    merge newbranch
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Simple "branch and merge" (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch newbranch
+      checkout newbranch
+      commit
+      checkout main
+      merge newbranch
+      </pre
+    >
+    <h2>Continuous development graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Continuous development (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch develop
+    checkout develop
+    commit
+    checkout main
+    merge develop
+    checkout develop
+    commit
+    checkout main
+    merge develop
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Continuous development (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch develop
+    checkout develop
+    commit
+    checkout main
+    merge develop
+    checkout develop
+    commit
+    checkout main
+    merge develop
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Continuous development (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch develop
+      checkout develop
+      commit
+      checkout main
+      merge develop
+      checkout develop
+      commit
+      checkout main
+      merge develop
+      </pre
+    >
+    <h2>Merge feature to advanced main graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Merge feature to advanced main (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit
+    checkout main
+    commit
+    merge newbranch
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Merge feature to advanced main (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit
+    checkout main
+    commit
+    merge newbranch
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Merge feature to advanced main (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch newbranch
+      checkout newbranch
+      commit
+      checkout main
+      commit
+      merge newbranch
+      </pre
+    >
+    <h2>Two-way merges</h2>
+    <pre class="mermaid">
+    ---
+    title: Two-way merges (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch develop
+    checkout develop
+    commit
+    checkout main
+    merge develop
+    commit
+    checkout develop
+    merge main
+    commit
+    checkout main
+    merge develop
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Two-way merges (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch develop
+    checkout develop
+    commit
+    checkout main
+    merge develop
+    commit
+    checkout develop
+    merge main
+    commit
+    checkout main
+    merge develop
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Two-way merges (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch develop
+      checkout develop
+      commit
+      checkout main
+      merge develop
+      commit
+      checkout develop
+      merge main
+      commit
+      checkout main
+      merge develop
+      </pre
+    >
+    <h2>Cherry-pick from branch graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Cherry-pick from branch (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit id: "Pick me"
+    checkout main
+    commit
+    checkout newbranch
+    commit
+    checkout main
+    cherry-pick id: "Pick me"
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Cherry-pick from branch (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit id: "Pick me"
+    checkout main
+    commit
+    checkout newbranch
+    commit
+    checkout main
+    cherry-pick id: "Pick me"
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Cherry-pick from branch (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch newbranch
+      checkout newbranch
+      commit id: "Pick me"
+      checkout main
+      commit
+      checkout newbranch
+      commit
+      checkout main
+      cherry-pick id: "Pick me"
+    </pre>
+    <h2>Cherry-pick from main graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Cherry-pick from main (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch develop
+    commit
+    checkout main
+    commit id:"A"
+    checkout develop
+    commit
+    cherry-pick id: "A"
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Cherry-pick from main (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch develop
+    commit
+    checkout main
+    commit id:"A"
+    checkout develop
+    commit
+    cherry-pick id: "A"
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Cherry-pick from main (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch develop
+      commit
+      checkout main
+      commit id:"A"
+      checkout develop
+      commit
+      cherry-pick id: "A"
+      </pre
+    >
+    <h2>Cherry-pick then merge graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Cherry-pick then merge (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit id: "Pick me"
+    checkout main
+    commit
+    checkout newbranch
+    commit
+    checkout main
+    cherry-pick id: "Pick me"
+    merge newbranch
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Cherry-pick then merge (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch newbranch
+    checkout newbranch
+    commit id: "Pick me"
+    checkout main
+    commit
+    checkout newbranch
+    commit
+    checkout main
+    cherry-pick id: "Pick me"
+    merge newbranch
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Cherry-pick then merge (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch newbranch
+      checkout newbranch
+      commit id: "Pick me"
+      checkout main
+      commit
+      checkout newbranch
+      commit
+      checkout main
+      cherry-pick id: "Pick me"
+      merge newbranch
+      </pre
+    >
+    <h2>Merge from main onto undeveloped branch graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Merge from main onto undeveloped branch (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch develop
+    commit
+    checkout main
+    commit
+    checkout develop
+    merge main
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Merge from main onto undeveloped branch (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch develop
+    commit
+    checkout main
+    commit
+    checkout develop
+    merge main
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Merge from main onto undeveloped branch (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch develop
+      commit
+      checkout main
+      commit
+      checkout develop
+      merge main
+      </pre
+    >
+    <h2>Merge from main onto developed branch graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Merge from main onto developed branch (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    branch develop
+    commit
+    checkout main
+    commit
+    checkout develop
+    commit
+    merge main
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Merge from main onto developed branch (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    branch develop
+    commit
+    checkout main
+    commit
+    checkout develop
+    commit
+    merge main
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Merge from main onto developed branch (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      branch develop
+      commit
+      checkout main
+      commit
+      checkout develop
+      commit
+      merge main
+      </pre
+    >
+    <h2>Two branches from same commit graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Two branches from same commit (left-to-right)
+    ---
+    gitGraph LR:
+    commit
+    commit
+    branch feature-001
+    commit
+    commit
+    checkout main
+    branch feature-002
+    commit
+    checkout feature-001
+    merge feature-002
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Two branches from same commit (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit
+    commit
+    branch feature-001
+    commit
+    commit
+    checkout main
+    branch feature-002
+    commit
+    checkout feature-001
+    merge feature-002
+    </pre>
+    <pre class="mermaid">
+      ---
+      title: Two branches from same commit (bottom-to-top)
+      ---
+      gitGraph BT:
+      commit
+      commit
+      branch feature-001
+      commit
+      commit
+      checkout main
+      branch feature-002
+      commit
+      checkout feature-001
+      merge feature-002
+      </pre
+    >
+    <h2>Three branches and a cherry-pick from each graph</h2>
+    <pre class="mermaid">
+    ---
+    title: Three branches and a cherry-pick from each (left-to-right)
+    ---
+    gitGraph LR:
+    commit id: "ZERO"
+    branch develop
+    commit id:"A"
+    checkout main
+    commit id:"ONE"
+    checkout develop
+    commit id:"B"
+    branch featureA
+    commit id:"FIX"
+    commit id: "FIX-2"
+    checkout main
+    commit id:"TWO"
+    cherry-pick id:"A"
+    commit id:"THREE"
+    cherry-pick id:"FIX"
+    checkout develop
+    commit id:"C"
+    merge featureA
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Three branches and a cherry-pick from each (top-to-bottom)
+    ---
+    gitGraph TB:
+    commit id: "ZERO"
+    branch develop
+    commit id:"A"
+    checkout main
+    commit id:"ONE"
+    checkout develop
+    commit id:"B"
+    branch featureA
+    commit id:"FIX"
+    commit id: "FIX-2"
+    checkout main
+    commit id:"TWO"
+    cherry-pick id:"A"
+    commit id:"THREE"
+    cherry-pick id:"FIX"
+    checkout develop
+    commit id:"C"
+    merge featureA
+    </pre>
+    <pre class="mermaid">
+    ---
+    title: Three branches and a cherry-pick from each (bottom-to-top)
+    ---
+    gitGraph BT:
+    commit id: "ZERO"
+    branch develop
+    commit id:"A"
+    checkout main
+    commit id:"ONE"
+    checkout develop
+    commit id:"B"
+    branch featureA
+    commit id:"FIX"
+    commit id: "FIX-2"
+    checkout main
+    commit id:"TWO"
+    cherry-pick id:"A"
+    commit id:"THREE"
+    cherry-pick id:"FIX"
+    checkout develop
+    commit id:"C"
+    merge featureA
+    </pre>
+    <script type="module">
+      import mermaid from './mermaid.esm.mjs';
+      const ALLOWED_TAGS = [
+        'a',
+        'b',
+        'blockquote',
+        'br',
+        'dd',
+        'div',
+        'dl',
+        'dt',
+        'em',
+        'foreignObject',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'h7',
+        'h8',
+        'hr',
+        'i',
+        'li',
+        'ul',
+        'ol',
+        'p',
+        'pre',
+        'span',
+        'strike',
+        'strong',
+        'table',
+        'tbody',
+        'td',
+        'tfoot',
+        'th',
+        'thead',
+        'tr',
+      ];
+      mermaid.initialize({
+        theme: 'default',
+        // themeCSS: '.node rect { fill: red; }',
+        logLevel: 3,
+        securityLevel: 'loose',
+        flowchart: { curve: 'basis' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 },
+        dompurifyConfig: {
+          USE_PROFILES: {
+            svg: true,
+          },
+          ADD_TAGS: ALLOWED_TAGS,
+          ADD_ATTR: ['transform-origin'],
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "@mermaid-js/webpack-test",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "module": "commonjs",
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.15.2"
+  },
+  "dependencies": {
+    "@mermaid-js/mermaid-example-diagram": "workspace:*",
+    "mermaid": "workspace:*"
+  }
+}

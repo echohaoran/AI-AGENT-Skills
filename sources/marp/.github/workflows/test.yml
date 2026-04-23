@@ -1,0 +1,43 @@
+name: Test
+
+on:
+  - pull_request
+  - push
+
+env:
+  CACHE_PREFIX: v1
+  YARN_VERSION: '^1.22.4'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install yarn
+        id: yarn
+        run: |
+          cd $HOME && yarn policies set-version $YARN_VERSION
+          echo "::set-output name=cache_dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn.outputs.cache_dir }}
+          key: yarn_cache-${{ env.CACHE_PREFIX }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: yarn_cache-${{ env.CACHE_PREFIX }}-
+
+      - run: yarn install
+      - run: yarn audit
+
+      - name: Prettier formatting
+        run: yarn check:format
+
+      - name: ESLint
+        run: yarn lint:js
+
+      - name: TypeScript type checking
+        run: yarn check:ts

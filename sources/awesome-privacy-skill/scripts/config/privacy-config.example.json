@@ -1,0 +1,28 @@
+{
+  "privacy": {
+    "redaction_marker": "<<REDACTED_{type}_{index}>>",
+    "max_file_size_mb": 50,
+    "chunk_size_kb": 1024
+  },
+  "ocr": {
+    "enabled": true,
+    "engine": "pytesseract",
+    "language": "eng+chi_sim"
+  },
+  "sensitive_types": {
+    "NAME": true,
+    "PHONE": true,
+    "EMAIL": true,
+    "ID": true,
+    "CREDIT_CARD": true,
+    "ADDRESS": true,
+    "IP": true,
+    "CUSTOM": true,
+    "API_KEY": true,
+    "MONEY": true,
+    "COMPANY_NAME": true
+  },
+  "custom_patterns": [
+    {"type": "CUSTOM", "pattern": "\\b[A-Z]{2}\\d{6}\\b"}
+  ]
+}

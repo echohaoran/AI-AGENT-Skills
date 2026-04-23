@@ -1,0 +1,22 @@
+{
+  "spec_version": "2.0",
+  "id": "com.awesome-privacy.privacy-shield",
+  "name": "Privacy Shield",
+  "version": "1.0.0",
+  "description": "本地敏感数据脱敏与可逆还原工具。读取本地文件，自动检测并脱敏敏感信息，生成可逆映射表，适用于所有 Agent 工作流。",
+  "author": "awesome-privacy-team",
+  "license": "MIT",
+  "runtime": "python3",
+  "capabilities": ["file_system", "terminal"],
+  "triggers": {
+    "intent": ["脱敏", "隐私保护", "隐私处理", "masking", "redact", "privacy", "敏感数据", "个人信息"],
+    "file_ext": [".pdf", ".docx", ".xlsx", ".xls", ".md", ".markdown", ".jpg", ".jpeg", ".png"]
+  },
+  "entrypoint": "scripts/main.py",
+  "supported_formats": ["pdf", "docx", "xlsx", "xls", "md", "markdown", "jpg", "jpeg", "png"],
+  "sensitive_types": ["NAME", "PHONE", "EMAIL", "ID", "CREDIT_CARD", "ADDRESS", "IP", "CUSTOM"],
+  "redaction_marker": "<<REDACTED_{type}_{index}>>",
+  "dependencies": {
+    "runtime": ["pypdf>=4.0.0", "openpyxl>=3.1.0", "python-docx>=1.1.0", "Pillow>=10.0.0", "pytesseract>=0.3.10"]
+  }
+}

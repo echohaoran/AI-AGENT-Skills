@@ -1,0 +1,84 @@
+#############################  Display  #############################
+
+# Verbose program output
+# Accepts log level: "error", "warn", "info", "debug", "trace"
+verbose = "debug"
+
+# Don't show interactive progress bar while checking links.
+no_progress = true
+
+#############################  Cache  ###############################
+
+# Enable link caching. This can be helpful to avoid checking the same links on
+# multiple runs.
+cache = true
+
+# Discard all cached requests older than this duration.
+max_cache_age = "1d"
+
+#############################  Requests  ############################
+
+# Comma-separated list of accepted status codes for valid links.
+accept = [200, 429]
+
+#############################  Exclusions  ##########################
+
+# Exclude URLs and mail addresses from checking (supports regex).
+exclude = [
+# Network error: Forbidden
+"https://codepen.io",
+
+# Timeout error, maybe Twitter has anti-bot defenses against GitHub's CI servers?
+"https://twitter.com/mermaidjs_",
+
+# Don't check files that are generated during the build via `pnpm docs:code`
+'packages/mermaid/src/docs/config/setup/*',
+
+# Ignore Discord invite
+"https://discord.gg",
+
+# BundlePhobia has frequent downtime
+"https://bundlephobia.com",
+
+# Chrome webstore migration issue. Temporary
+"https://chromewebstore.google.com",
+
+# Drupal 403
+"https://(www.)?drupal.org",
+
+# Phbpp 403
+"https://(www.)?phpbb.com",
+
+# Swimm returns 404, even though the link is valid
+"https://docs.swimm.io",
+
+# Certificate Error
+"https://noteshub.app",
+
+# Timeout
+"https://huehive.co",
+"https://foswiki.org",
+"https://www.gnu.org",
+"https://redmine.org",
+"https://mermaid-preview.com",
+
+# npmjs.com 403
+"https://(www.)?npmjs.com",
+
+# dokuwiki.org 402
+"https://(www.)?dokuwiki.org",
+
+# medium.com 403
+"https://medium.com",
+
+# appsource.microsoft.com 403
+"https://appsource.microsoft.com",
+
+# mermaid.ai 403
+"https://mermaid.ai"
+]
+
+# Exclude all private IPs from checking.
+# Equivalent to setting `exclude_private`, `exclude_link_local`, and
+# `exclude_loopback` to true.
+exclude_all_private = true

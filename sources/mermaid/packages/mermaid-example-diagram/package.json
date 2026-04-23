@@ -1,0 +1,56 @@
+{
+  "name": "@mermaid-js/mermaid-example-diagram",
+  "version": "9.3.0",
+  "private": true,
+  "description": "Example of external diagram module for MermaidJS.",
+  "module": "dist/mermaid-example-diagram.core.mjs",
+  "types": "dist/detector.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/mermaid-example-diagram.core.mjs",
+      "types": "./dist/detector.d.ts"
+    },
+    "./*": "./*"
+  },
+  "keywords": [
+    "diagram",
+    "markdown",
+    "example",
+    "mermaid"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mermaid-js/mermaid"
+  },
+  "author": "Knut Sveidqvist",
+  "license": "MIT",
+  "standard": {
+    "ignore": [
+      "**/parser/*.js",
+      "dist/**/*.js",
+      "cypress/**/*.js"
+    ],
+    "globals": [
+      "page"
+    ]
+  },
+  "dependencies": {
+    "@braintree/sanitize-url": "^7.1.1",
+    "d3": "^7.9.0",
+    "khroma": "^2.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "mermaid": "workspace:*",
+    "rimraf": "^6.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ]
+}

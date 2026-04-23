@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --noise-image: url('/assets/noise.svg');
+  --header-height: 4rem;
+  --anchor-margin: var(--header-height);
+
+  scroll-padding-top: var(--anchor-margin);
+}
+
+@screen md {
+  :root {
+    --header-height: 5rem;
+  }
+}
+
+* {
+  scrollbar-color: theme('colors.gray.500') theme('colors.gray.300');
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  @apply bg-gray-300;
+}
+*::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-gray-500 bg-clip-padding;
+
+  border: 1px solid transparent;
+}
+*::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+*::-webkit-scrollbar-thumb:hover:active {
+  @apply bg-gray-700;
+}
+
+html:not(.translating) {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-foreground bg-background relative min-h-full;
+}
+
+body::before {
+  @apply bg-background fixed inset-0 block;
+
+  background-image: var(--noise-image),
+    linear-gradient(
+      to bottom,
+      theme('colors.gray.100'),
+      theme('colors.background') 50%
+    );
+  content: '';
+  z-index: -1;
+}
+
+a:not(.custom-anchor) {
+  @apply text-marp-darken;
+}
+
+a:not(.custom-anchor):hover {
+  @apply text-marp-dark underline transition-colors duration-300;
+}
+
+a:not(.custom-anchor):hover:active {
+  @apply text-marp-darkest duration-0;
+}
+
+mark {
+  background: none;
+  color: inherit;
+  box-shadow: inset 0 -0.2em theme('colors.marp.light');
+}
+
+/* NProgress */
+#nprogress .bar {
+  @apply bg-marp-brand;
+}
+#nprogress .peg {
+  @apply shadow-none;
+}
+
+/* Helper classes */
+.text-gradient {
+  @apply text-marp-brand leading-tight;
+}
+
+@supports (background-clip: text) {
+  .text-gradient {
+    @apply bg-marp-brand bg-clip-text text-transparent;
+
+    background-image: linear-gradient(
+      -1deg,
+      theme('colors.marp.light'),
+      theme('colors.marp.brand'),
+      theme('colors.marp.dark')
+    );
+  }
+}
