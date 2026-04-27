@@ -61,6 +61,68 @@ class PDFHandler(BaseHandler):
         except Exception:
             return None
 
+    def ocr_full_text(self, file_path: str) -> Optional[str]:
+        """
+        OCR entire PDF page by page and return full text.
+        
+        Renders each page to high-resolution image (4× zoom = 288 DPI),
+        runs OCR via pytesseract, concatenates all pages.
+
+        This is the recommended text extraction method for graphical PDFs
+        where PyMuPDF's built-in text extraction is incomplete.
+
+        Strategy:
+          1. Try pytesseract OCR on high-res rendered page images.
+          2. If OCR returns nothing, fallback to PyMuPDF direct text extraction.
+          3. If both fail, return None.
+
+        Args:
+            file_path: Path to the PDF file.
+
+        Returns:
+            Full OCR text (pages separated by double newlines),
+            or PyMuPDF text extraction as fallback,
+            or None if both fail.
+        """
+        if not self._ocr_available:
+            return self.read(file_path)
+
+        try:
+            import fitz
+            from PIL import Image
+            import pytesseract
+
+            doc = fitz.open(file_path)
+            ocr_parts = []
+            for i, page in enumerate(doc, 1):
+                # Higher zoom for better OCR accuracy
+                pix = page.get_pixmap(matrix=fitz.Matrix(4, 4))
+                tmp = f"/tmp/pdf_ocr_page_{i}.png"
+                pix.save(tmp)
+
+                img = Image.open(tmp).convert("RGB")
+                text = pytesseract.image_to_string(
+                    img,
+                    lang=self.settings.get("ocr", "language", default="eng+chi_sim"),
+                ).strip()
+                ocr_parts.append(text)
+
+            doc.close()
+            ocr_text = "\n\n".join(ocr_parts).strip()
+
+            # If OCR produced meaningful text, use it
+            if len(ocr_text) > 20:
+                return ocr_text
+
+            # Fallback: OCR didn't work well, use PyMuPDF text extraction
+            return self.read(file_path)
+
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            # Fallback to PyMuPDF text extraction
+            return self.read(file_path)
+
     def redact_image_level(
         self,
         input_path: str,
