@@ -1,0 +1,10 @@
+[project]
+name = "maishou"
+version = "1.0.0"
+description = "全网比价技能 - 获取淘宝、京东、拼多多等平台最优价格"
+requires-python = ">=3.11"
+dependencies = [
+    "aiohttp",
+    "argparse",
+    "PyYAML",
+]
